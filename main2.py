@@ -6,8 +6,9 @@ import threading
 otherIp = input('please enter the other ip: ')
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect(('127.0.0.1', 55555))
-# s.connect((otherIp, 55555))
+#s.connect(('127.0.0.1', 55555))
+#s.connect(("104.194.100.190", 55555))
+s.connect((otherIp, 55555))
 file = open("chat.txt", 'a')
 file.write("new chat starting \n")
 
@@ -20,7 +21,7 @@ def recieveer():
             print(message)
         else:  # if conection closed
             end_connection = True
-            print("connection ended")
+            print("-!-!-!-connection ended-!-!-!-")
 
 
 t1 = threading.Thread(target=recieveer)
