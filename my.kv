@@ -1,0 +1,219 @@
+Manager: # is there a way to change window size with screen size
+    id:screen
+
+    welcomescreen:welcomescreen
+    chatscreen:chatscreen
+    #aipop:aipop
+    #sendpop:sendpop
+    #recievepop:recievepop
+
+    WelcomeScreen:
+        manager: screen
+        name: "welcomescreen"
+        id: welcomescreen
+
+    ChatScreen:
+        manager: screen
+        name: "chatscreen"
+        id: chatscreen
+
+    InfoScreen:
+        manager: screen
+
+
+
+<WelcomeScreen>
+
+    FloatLayout:
+        id: Layout
+        Label:
+            id: welcome
+            text: "WELCOME to the One Time Chat App"
+            pos_hint: {"x":0, "y":.75}
+            size_hint: 1,.25
+
+        Label:
+            id:ipLabel
+            text: ""
+            pos_hint: {"x":.1, "y":.65}
+            size_hint: .8,.1
+
+
+        Button:
+            id: AIChat
+            text: "Chat With Assistant"
+            pos_hint: {"x":.05, "y":.45}
+            size_hint: .9,.2
+
+            on_press:
+                root.aiBtn()
+                #app.root.current= "AIChatScreen"
+
+        Button:
+            id: sendConnection
+            text: "Send Connection"
+            pos_hint: {"x":.05, "y":.25}
+            size_hint: .9,.2
+
+            on_press:
+                root.sendBtn()
+                #app.root.current= "SendConnectionScreen"
+
+        Button:
+            id: waitForConnection
+            text: "Wait for a Connection"
+            pos_hint: {"x":.05, "y":.05}
+            size_hint: .9,.2
+
+            on_press:
+                root.waitBtn()
+                #app.root.current= "WaitConnectionScreen"
+
+        Button:
+            id: changeToInfo
+            text: "Info"
+
+            pos_hint: {"x":.95, "y":.005}
+            size_hint: .05, .045
+            on_press:
+                root.testBtn()
+                #app.root.current= "InfoScreen"
+
+<ChatScreen>
+
+    Button: # change window and close all connections
+        id: endChat
+        text: "<-- End Chat"
+        size_hint: 0.15, 0.1
+        pos_hint: {"x":0, "y":.9}
+        on_press:
+            app.root.current= "welcomescreen"
+            root.clearChat()
+
+    Label: # name of client
+        id: otherIP
+        text: "hiiii"
+        size_hint: 0.7, 0.1
+        pos_hint: {"x":0.15, "y":0.9}
+
+
+    ScrollView: # should be a scrollview of chats(labels)
+        id: sView
+        size_hint: 1, 0.8
+        pos_hint: {"x":0, "y":0.1}
+
+        do_scroll_x: False
+        do_scroll_y: True
+
+        Label:
+            id: chat
+            size_hint_y: None
+            height: self.texture_size[1]
+            text_size: self.width, None
+            padding: 10, 10
+            text:
+                #'really some amazing text\n' * 100
+
+    TextInput: # the input box of chat to send
+        id: inputBox
+        size_hint: 0.8, 0.1
+        pos_hint: {"x":0.1, "y":0}
+
+    Button: # send button
+        id: sendBtn
+        text: "Send"
+        size_hint: 0.1, 0.1
+        pos_hint: {"x":0.9, "y":0}
+        on_press:
+            root.send()
+
+<InfoScreen>
+    name: "InfoScreen"
+
+
+<AIPop>
+    Label:
+        text: "Connecting..."
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":1}
+
+<SendPop>
+    TextInput:
+        id: Ip
+        size_hint: 0.8, 0.2
+        pos_hint: {"x":0.1, "top":.9}
+
+    Label:
+        text: ""
+        id: Connecting
+        size_hint: .8, .2
+        pos_hint: {"x": .1, "y": .4}
+
+    Button:
+        text: "Enter"
+        id: enterBtn
+        size_hint: 0.8, 0.2
+        pos_hint: {"x":0.1, "y":0.2}
+        background_color: 0.1, 0.5, 0.6
+        disabled: False
+        on_press:
+            root.Btn()
+
+    Button:
+        text: "Continue -->"
+        id: contBtn
+        size_hint: 0.8, 0.1
+        pos_hint: {"x":.1, "y":0.1}
+        disabled: True
+        on_press:
+            root.dis()
+            app.root.current= "chatscreen"
+
+
+<RecievePop>
+    name: "recieve"
+    id: recieve
+
+    Button:
+        id: scanBtn
+        text: "Scan for Connections"
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":1}
+        on_press:
+            root.oneTime()
+
+
+    Label:
+        id: ipLabel
+        text: "Waiting"
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":.8}
+
+
+    Button:
+        id: acceptBtn
+        text: "Accept"
+        size_hint: .3,.2
+        pos_hint: {"x":0.2, "top":.6}
+        disabled: True
+        on_press:
+            root.accepted()
+
+    Button:
+        id: declineBtn
+        text: "Decline"
+        size_hint: .3,.2
+        pos_hint: {"x":0.5, "top":.6}
+        disabled: True
+        on_press:
+            root.declined()
+
+    Button:
+        text: "Continue -->"
+        id: contBtn
+        size_hint: 0.8, 0.1
+        pos_hint: {"x":.1, "y":0.1}
+        disabled: True
+        on_press:
+            root.dis()
+            app.root.current= "chatscreen"
