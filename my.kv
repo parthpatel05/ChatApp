@@ -3,9 +3,6 @@ Manager: # is there a way to change window size with screen size
 
     welcomescreen:welcomescreen
     chatscreen:chatscreen
-    #aipop:aipop
-    #sendpop:sendpop
-    #recievepop:recievepop
 
     WelcomeScreen:
         manager: screen
@@ -16,6 +13,11 @@ Manager: # is there a way to change window size with screen size
         manager: screen
         name: "chatscreen"
         id: chatscreen
+
+    AIChatScreen:
+        manager: screen
+        name: "aichatscreen"
+        id: aichatscreen
 
     InfoScreen:
         manager: screen
@@ -126,6 +128,48 @@ Manager: # is there a way to change window size with screen size
         pos_hint: {"x":0.9, "y":0}
         on_press:
             root.send()
+
+<AIChatScreen>
+    Button: # change window and close all connections
+        id: endChat
+        text: "<-- End Chat"
+        size_hint: 0.15, 0.1
+        pos_hint: {"x":0, "y":.9}
+        on_press:
+            app.root.current= "welcomescreen"
+            #root.clearChat()
+
+    ScrollView: # should be a scrollview of chats(labels)
+        id: sView
+        size_hint: 1, 0.8
+        pos_hint: {"x":0, "y":0.1}
+
+        do_scroll_x: False
+        do_scroll_y: True
+
+        Label:
+            id: chat
+            size_hint_y: None
+            height: self.texture_size[1]
+            text_size: self.width, None
+            padding: 10, 10
+            text:
+                #'really some amazing text\n' * 100
+
+    TextInput: # the input box of chat to send
+        text: "AI being loaded"
+        id: inputBox
+        size_hint: 0.8, 0.1
+        pos_hint: {"x":0.1, "y":0}
+
+    Button: # send button
+        id: sendBtn
+        text: "Send"
+        size_hint: 0.1, 0.1
+        pos_hint: {"x":0.9, "y":0}
+        on_press:
+            root.send()
+
 
 <InfoScreen>
     name: "InfoScreen"

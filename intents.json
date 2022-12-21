@@ -1,0 +1,88 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "How are you",
+        "Is anyone there?",
+        "Hello",
+        "Good day"
+      ],
+      "responses": [
+        "Hey :-)",
+        "Hello, thanks for visiting",
+        "Hi there, what can I do for you?",
+        "Hi there, how can I help?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you later", "Goodbye"],
+      "responses": [
+        "See you later, thanks for visiting",
+        "Have a nice day",
+        "Bye! Come back again soon."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+      "responses": ["Happy to help!", "Any time!", "My pleasure"]
+    },
+    {
+      "tag": "identity",
+      "patterns": [
+        "Who are you?",
+        "What is you name?",
+        "Where are you from?"
+      ],
+      "responses": [
+        "I am you"
+      ]
+    },
+    {
+      "tag": "motivation",
+      "patterns": [
+        "I am feeling sad",
+        "There is nothing in life",
+        "this is depressing",
+        "what is my purpose"
+      ],
+      "responses": [
+        "there are many things that happen but we must go on",
+        "life has many ups and downs",
+        "one achieves greatness only after enduring",
+        "life is not one straight path, it has many turns some good some bad"
+      ]
+    },
+    {
+      "tag": "weather",
+      "patterns": [
+        "What is the weather?",
+        "whats it like outside?",
+        "is it cold outside",
+        "is it raining outside"
+
+      ],
+      "responses": [
+        "it is clear with a chance of rain",
+        "it is raining and 73 degrees farenheight",
+        "it is snowing until 2pm"
+      ]
+    },
+    {
+      "tag": "funny",
+      "patterns": [
+        "Tell me a joke!",
+        "Tell me something funny!",
+        "Do you know a joke?"
+      ],
+      "responses": [
+        "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
+        "What did the buffalo say when his son left for college? Bison."
+      ]
+    }
+  ]
+}

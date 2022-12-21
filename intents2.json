@@ -1,0 +1,75 @@
+{
+  "tag": {
+    "0":"greeting",
+    "1": "goodbye",
+    "2": "thanks",
+    "3": "items",
+    "4": "payments",
+    "5": "delivery",
+    "6": "funny"
+  },
+  "patterns": {
+    "0": [
+        "Hi",
+        "Hey",
+        "How are you",
+        "Is anyone there?",
+        "Hello",
+        "Good day"
+      ],
+    "1": ["Bye", "See you later", "Goodbye"],
+    "2": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
+    "3": [
+        "Which items do you have?",
+        "What kinds of items are there?",
+        "What do you sell?"
+      ],
+    "4": [
+        "Do you take credit cards?",
+        "Do you accept Mastercard?",
+        "Can I pay with Paypal?",
+        "Are you cash only?"
+      ],
+    "5": [
+        "How long does delivery take?",
+        "How long does shipping take?",
+        "When do I get my delivery?"
+      ],
+    "6": [
+        "Tell me a joke!",
+        "Tell me something funny!",
+        "Do you know a joke?"
+      ]
+  },
+  "responses": {
+    "0": [
+        "Hey :-)",
+        "Hello, thanks for visiting",
+        "Hi there, what can I do for you?",
+        "Hi there, how can I help?"
+      ],
+    "1": [
+        "See you later, thanks for visiting",
+        "Have a nice day",
+        "Bye! Come back again soon."
+      ],
+    "2": ["Happy to help!", "Any time!", "My pleasure"],
+    "3": [
+        "We sell coffee and tea",
+        "We have coffee and tea"
+      ],
+    "4": [
+        "We accept VISA, Mastercard and Paypal",
+        "We accept most major credit cards, and Paypal"
+      ],
+    "5": [
+        "Delivery takes 2-4 days",
+        "Shipping takes 2-4 days"
+      ],
+    "6": [
+        "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
+        "What did the buffalo say when his son left for college? Bison."
+      ]
+  }
+
+}
